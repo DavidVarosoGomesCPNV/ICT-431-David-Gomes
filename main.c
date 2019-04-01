@@ -16,6 +16,16 @@ void menu(){
     while (choix != 1 && choix != 4) //Boucle pour afficher le menu tant que l'utilisateur n'a pas appuiyer sur jouer ou quitter
     {
         // Choix de l'utilisateur
+        printf("------------------------------------------------\n       \n------------------------------------------------\n\n\n");
+        printf("       _~                                      _~\n"
+               "    _~ )_)_~                                _~ )_)_~\n"
+               "    )_))_))_)        Bataille navale        )_))_))_)\n"
+               "    _!__!__!_                               _!__!__!_\n"
+               "    \\______t/                               \\______t/\n"
+               "  ~~~~~~~~~~~~~                           ~~~~~~~~~~~~~\n"
+               "\n"
+               "------------------------------------------------\n");
+
         printf("1 - Jouer\n2 - Option\n3 - Règles du jeu\n4 - Quitter\n\nQuel est votre choix ?\n");
         scanf("%d", &choix);
 
@@ -43,18 +53,24 @@ void menu(){
                     affichageGrille();
 
 
+
                 break;
             }
             {
                 case 2:
-                    printf("En devlopement ...\n\n");
+                    printf("En devlopement ...");
+
                     break;
             }
             {
                 case 3:
+                    system("cls");
                     printf("Voici les règles:\n\nIl s'aggit d'un jeu de bataille navale, vous devez couler tout les bataux de votre adversaire aussi vite que possible ou vous risquez d'avoir les poissons comme voisins !\n\n");
-                    printf("Il a differents types de bateaux plus ou moins grands : \n => Les torpieurs ( 2 cases ) \n => Les sous-marins ( 3 cases ) \n => Les contre-torpieurs ( 3 cases ) \n => Les croiseurs ( 4 cases ) \n => Les porte-avions ( 5 cases ) \n\n");
-                    printf("Il n'y qu'un bateau de chaque type !!\n\n");
+                    printf("Comme dans tout jeu il y a également un score, il augemente de 10 si vous touchez un bateau mais en cas de tir dans l'eau il descend de 3\n\n");
+                    printf("Il a differents types de bateaux plus ou moins grands : \n => Les torpieurs ( 2 cases ) \n => Les sous-marins ( 3 cases ) \n => Les contre-torpieurs ( 3 cases ) \n => Les croiseurs ( 4 cases ) \n => Les porte-avions ( 5 cases ) \n");
+                    printf("Il n'y qu'un bateau de chaque type.\n\n");
+                    system("pause");
+                    system("cls");
                 break;
             }
             {
@@ -72,7 +88,7 @@ void menu(){
 char playername[15];
 
 int main() {
-    SetConsoleOutputCP(65001); //Cette liste permet d'afficher des accents
+    SetConsoleOutputCP(65001);                  //Cette liste permet d'afficher des accents
 
     printf("Bienvenu dans la bataille navalle !\n");
     printf("Comment vous appelez-vous capitaine ?\n");
@@ -80,7 +96,6 @@ int main() {
     printf("Bienvenu %s !\n", playername);
 
     printf("Que vouleuz-vous faire ?\n");
-    printf("________________________\n");
     menu();
 
 
