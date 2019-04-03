@@ -69,7 +69,7 @@ void menu(){
                 printf("Voici les règles:\n\nIl s'aggit d'un jeu de bataille navale, vous devez couler tout les bataux de votre adversaire aussi vite que possible ou vous risquez d'avoir les poissons comme voisins !\n\n");
                 printf("Comme dans tout jeu il y a également un score, il augemente de 10 si vous touchez un bateau mais en cas de tir dans l'eau il descend de 3\n\n");
                 printf("Il a differents types de bateaux plus ou moins grands : \n => Les torpieurs ( 2 cases ) \n => Les sous-marins ( 3 cases ) \n => Les contre-torpieurs ( 3 cases ) \n => Les croiseurs ( 4 cases ) \n => Les porte-avions ( 5 cases ) \n");
-                printf("Il n'y qu'un bateau de chaque type.\n\n");
+                printf("Il n'y qu'un bateau de chaque type, retenez bien lesquels vous coulez !.\n\n");
                 system("pause");
                 system("cls");
                 break;

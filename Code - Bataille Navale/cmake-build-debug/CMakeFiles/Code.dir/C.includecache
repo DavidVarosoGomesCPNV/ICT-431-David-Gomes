@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code/Tableau.h
+C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code - Bataille Navale/Tableau.h
 stdlib.h
 -
 stdio.h
@@ -14,11 +14,11 @@ stdio.h
 windows.h
 -
 
-C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code/main.c
+C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code - Bataille Navale/main.c
 stdio.h
 -
 windows.h
 -
 Tableau.h
-C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code/Tableau.h
+C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code - Bataille Navale/Tableau.h
 
