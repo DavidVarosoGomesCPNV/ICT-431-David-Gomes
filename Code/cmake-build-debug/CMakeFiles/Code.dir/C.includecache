@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code/Tableau.h
+stdlib.h
+-
+stdio.h
+-
+windows.h
+-
+
+C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code/main.c
+stdio.h
+-
+windows.h
+-
+Tableau.h
+C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code/Tableau.h
+
