@@ -9,7 +9,7 @@
 #include <windows.h>
 #include "Tableau.h"
 #pragma execution_character_set ("utf-8")
-
+int choixcouleur;
 
 void menu(){
 
@@ -61,7 +61,24 @@ void menu(){
             }
             {
                 case 2:
-                    printf("En devlopement ...\n\n\n");
+                    system("cls");
+                    printf("Choisisez une couleur pour votre programme !\n");
+                    printf("1 - Bleu Foncé & Fond Noir\n2 - Bleu Clair Fond Noir\n3 - Bleu Clair & Fond Bleu\n\n\nQuel est votre choix ?\n");
+                    printf("Vous pouvez revenir sur votre choix si la couleur ne vous plait pas a partir du menu.\n");
+                    scanf("%d",&choixcouleur);
+                    system("cls");
+
+                    if(choixcouleur==1){
+                        system("color 9");
+                    }
+
+                    if(choixcouleur==2){
+                        system("color b");
+                    }
+
+                    if(choixcouleur==3){
+                        system("color 3b");
+                    }
 
                 break;
             }
@@ -94,9 +111,6 @@ char playername[15];
 
 int main() {
     SetConsoleOutputCP(65001);  //Cette liste permet d'afficher des accents
-
-    system("color b");
-
 
     printf("Bienvenu dans la bataille navalle !\n");
     printf("Comment vous appelez-vous capitaine ?\n");

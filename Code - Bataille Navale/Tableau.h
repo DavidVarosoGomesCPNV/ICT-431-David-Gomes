@@ -85,7 +85,7 @@ void affichageGrille() {
         if(nbcoups==55){
 
             fprintf(txtscore,"Partie perdue :( \n");
-            fprintf(txtscore," %s ","Voici ton score :");
+            fprintf(txtscore," %s ","Voici votre score :");
             fprintf(txtscore," %d ""points !",score);
 
             printf("\n\n\nVous avez perdu ! Vous n'avez pas réussi a couler tout les bateaux en 40 coups, dommage !\n\n");
@@ -99,7 +99,7 @@ void affichageGrille() {
         if(nbbateauxcoule==5){
 
             fprintf(txtscore,"Partie gagnée !! =D\n ");
-            fprintf(txtscore," %s ","Voici ton score :");
+            fprintf(txtscore," %s ","Voici votre score :");
             fprintf(txtscore," %d ""points !",score);
 
             printf("\n\nVotre score final est de %d !", score);
