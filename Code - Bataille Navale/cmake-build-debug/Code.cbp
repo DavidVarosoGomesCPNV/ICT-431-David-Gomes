@@ -76,6 +76,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code - Bataille Navale/Grilles Aléatoires.h">
+			<Option target="Code"/>
+		</Unit>
 		<Unit filename="C:/Users/David-Manuel.VAROSO/Documents/GitHub/ICT-431-David-Gomes/Code - Bataille Navale/main.c">
 			<Option target="Code"/>
 		</Unit>

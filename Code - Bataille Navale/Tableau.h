@@ -10,6 +10,7 @@
 #include <windows.h>
 
 
+
 #define MAX_LIGNE 10 // Constante pour la valeur max de la ligne
 #define MAX_COLONNE 10 // Constante pour la valeur max de la ligne
 
@@ -78,7 +79,16 @@ void affichageGrille() {
 
     // boucle pr le nb de coups max
 
-    while (nbcoups < 100 ) {
+    while (nbcoups < 50 ) {
+
+        if(nbcoups==9){
+            printf("\n\n\nVous avez perdu ! Vous n'avez pas réussi a couler tout les bateaux en 50 coups, dommage !\n\n");
+            printf("Plus de chance la prochaine fois !\n\n");
+            system("pause");
+            exit(0);
+
+        }
+
 
         if(nbbateauxcoule==5){
 
@@ -97,6 +107,8 @@ void affichageGrille() {
         scanf("%d", &horizontal);
 
 
+
+
         // Modification de l'idex pour l'affichage des indicateurs 1,2,3 etc au dessus et a gauche de la grille
         vertical--;
         horizontal--;
@@ -106,7 +118,36 @@ void affichageGrille() {
         // Condition si le tir tombe sur un bateau
 
         if(tableauAfficher[vertical][horizontal] == *"X" || tableauAfficher[vertical][horizontal] == *"R"){
-            printf("\nVous avez déjà tiré sur cette case, je vous donne une autre chance :)\n");
+            printf("\nVous avez déjà tiré sur cette case, je vous donne une autre chance :)\n\n\n");
+
+            int ligne = 0;
+            int colonne = 0;
+
+            int indicateurs = 1;
+            int chiffres_ligne=1;
+
+            printf(" ");
+
+            for (indicateurs = 1; indicateurs < 10; indicateurs++) {
+                printf("%5d", indicateurs);
+            }
+
+
+            // Reaffiche le tableau
+
+            for (ligne = 0; ligne < 9; ligne++) {
+                printf("\n");
+
+                printf("%d",chiffres_ligne);
+                chiffres_ligne++;
+
+                for (colonne = 0; colonne < 9; colonne++) {
+                    printf("%5c", tableauAfficher[ligne][colonne]);
+
+                }
+
+            }
+
             printf("\nChoisisez votre position dans la ligne : \n");
             scanf("%d", &vertical);
             printf("\nChoisisez votre position dans la colonne : \n");
