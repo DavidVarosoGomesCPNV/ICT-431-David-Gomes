@@ -5,9 +5,11 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <windows.h>
 #include "Tableau.h"
 #pragma execution_character_set ("utf-8")
+
 
 void menu(){
 
@@ -76,7 +78,7 @@ void menu(){
             }
             {
                 default:
-                    system("cls");
+                system("cls");
                 printf("Merci d'avoir joué a ce jeu ! \n");
                 system("pause");
                 break;
@@ -91,16 +93,29 @@ void menu(){
 char playername[15];
 
 int main() {
-    SetConsoleOutputCP(65001);                  //Cette liste permet d'afficher des accents
+    SetConsoleOutputCP(65001);  //Cette liste permet d'afficher des accents
+
+    system("color b");
+
 
     printf("Bienvenu dans la bataille navalle !\n");
     printf("Comment vous appelez-vous capitaine ?\n");
     scanf("%s", playername);
     printf("Bienvenu %s !\n", playername);
 
+    if (txtscore == NULL) {
+        txtscore = fopen("Score.txt", "a");
+        fprintf(txtscore, "\n\nPseudo du joueur : %s\n\n",playername);
+
+    }
+
+
+
     printf("Que vouleuz-vous faire ?\n");
+
     menu();
 
+    fclose(txtscore);
 
 
 

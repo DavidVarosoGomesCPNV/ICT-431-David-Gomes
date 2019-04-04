@@ -34,6 +34,7 @@ int score = 0;
 
 // Affichage de la zone de jeu
 
+FILE* txtscore;
 
 char tableauAfficher[MAX_LIGNE][MAX_COLONNE]={
 
@@ -79,20 +80,30 @@ void affichageGrille() {
 
     // boucle pr le nb de coups max
 
-    while (nbcoups < 50 ) {
+    while (nbcoups < 80 ) {
 
-        if(nbcoups==9){
-            printf("\n\n\nVous avez perdu ! Vous n'avez pas réussi a couler tout les bateaux en 50 coups, dommage !\n\n");
+        if(nbcoups==55){
+
+            fprintf(txtscore,"Partie perdue :( \n");
+            fprintf(txtscore," %s ","Voici ton score :");
+            fprintf(txtscore," %d ""points !",score);
+
+            printf("\n\n\nVous avez perdu ! Vous n'avez pas réussi a couler tout les bateaux en 40 coups, dommage !\n\n");
+            printf("\nVous pouvez voir le score de tout les joueurs dans le fichier Score.txt !");
             printf("Plus de chance la prochaine fois !\n\n");
             system("pause");
             exit(0);
 
         }
 
-
         if(nbbateauxcoule==5){
 
-            printf("\nVotre score final est de %d !", score);
+            fprintf(txtscore,"Partie gagnée !! =D\n ");
+            fprintf(txtscore," %s ","Voici ton score :");
+            fprintf(txtscore," %d ""points !",score);
+
+            printf("\n\nVotre score final est de %d !", score);
+            printf("\nVous pouvez voir le score de tout les joueurs dans le fichier Score.txt !");
             printf("\nVous avez coulé tout les bateaux bien joué !\n");
             system("pause");
             exit(0);
