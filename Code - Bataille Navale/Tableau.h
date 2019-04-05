@@ -1,15 +1,15 @@
-//
-// Created by David-Manuel.VAROSO on 08.03.2019.
-//
+// Auteur : David Varoso Gomes
+// Date : 20.02.2019
+// Version : 1.1
+// But : Créer une jeu Bataille Navale
 
 #ifndef BATAILLENAVALEXA_TABLEAU_H
 #define BATAILLENAVALEXA_TABLEAU_H
 
+// Libraries
 #include <stdlib.h>
 #include <stdio.h>
 #include <windows.h>
-
-
 
 #define MAX_LIGNE 10 // Constante pour la valeur max de la ligne
 #define MAX_COLONNE 10 // Constante pour la valeur max de la ligne
@@ -29,13 +29,14 @@ int vie_contre_torpieur =0;
 int vie_croiseur = 0;
 int vie_porte_avion= 0;
 
-int nbbateauxcoule =0;
-int score = 0;
+int nbbateauxcoule =0; // Variable pour savoir quand on a gagné
+int score = 0; // Score du joueur
 
 // Affichage de la zone de jeu
 
-FILE* txtscore;
+FILE* txtscore; // Ficher ou on enregistr le score
 
+// Interface "graphique" du jeu
 char tableauAfficher[MAX_LIGNE][MAX_COLONNE]={
 
         "----------",
@@ -51,14 +52,12 @@ char tableauAfficher[MAX_LIGNE][MAX_COLONNE]={
 };
 
 
-
-
 // Fonction pour le tableau, ou on place les bateau
 
 void affichageGrille() {
 
     int vertical, horizontal;
-    int nbcoups = 0;
+    int nbcoups = 0; // Variable pour suivre le nombre de tirs du joueur
 
     // 1 torpieur : 2 cases, 1 sous-marin : 3 cases, 1 contre-torpieur : 3 cases, 1 croiseur : 4 cases et 1 porte-avions : 5 cases
     // Tout cela est aussi détailé dans l'option "Règles du jeu" du menu
@@ -78,17 +77,24 @@ void affichageGrille() {
 
 
 
-    // boucle pr le nb de coups max
+    // Boucle avec le nombre de coups max pour une partie
 
     while (nbcoups < 80 ) {
 
+        // Condition de défaite, si le nombre de coups arrive a 40 c'est perdu
         if(nbcoups==40){
 
+            // écrit dans le fichier score.txt que la partie est perdue
             fprintf(txtscore,"Partie perdue :( \n");
+
+            // écrit dans le fichier score.txt le score
             fprintf(txtscore," %s ","Voici votre score :");
             fprintf(txtscore," %d ""points !",score);
+
+            // Lignes de séparation
             fprintf(txtscore,"\n-------------------------------------\n\n");
 
+            // Texte de défaite
             printf("\n\n\nVous avez perdu ! Vous n'avez pas réussi a couler tout les bateaux en 40 coups, dommage !\n\n");
             printf("\nVous pouvez voir le score de tout les joueurs dans le fichier Score.txt !");
             printf("Plus de chance la prochaine fois !\n\n");
@@ -97,13 +103,20 @@ void affichageGrille() {
 
         }
 
+        // Condition de victoire, si le nombre de bateaux coulées est égal a 5 (nb de bateaux max dans la partie) c'est gagné
         if(nbbateauxcoule==5){
 
+            // écrit dans le fichier score.txt que la partie est gagnée
             fprintf(txtscore,"Partie gagnée !! =D\n ");
+
+            // écrit dans le fichier score.txt le score
             fprintf(txtscore," %s ","Voici votre score :");
             fprintf(txtscore," %d ""points !",score);
+
+            // Lignes de séparation
             fprintf(txtscore,"\n-------------------------------------\n\n");
 
+            // Texte de victoire
             printf("\n\nVotre score final est de %d !", score);
             printf("\nVous pouvez voir le score de tout les joueurs dans le fichier Score.txt !");
             printf("\nVous avez coulé tout les bateaux bien joué !\n");
@@ -113,6 +126,9 @@ void affichageGrille() {
         }
 
         // Affichage et demande des valeurs ou l'utilisateur veut tirer
+
+
+
 
         printf("\nChoisisez votre position dans la ligne : \n");
         scanf("%d", &vertical);
@@ -128,7 +144,7 @@ void affichageGrille() {
 
         system("cls");
 
-        // Condition si le tir tombe sur un bateau
+        // Condition pour la sécurité de tir, pour ne pas tirer 2x sur la même case
 
         if(tableauAfficher[vertical][horizontal] == *"X" || tableauAfficher[vertical][horizontal] == *"R"){
             printf("\nVous avez déjà tiré sur cette case, je vous donne une autre chance :)\n\n\n");
@@ -141,12 +157,13 @@ void affichageGrille() {
 
             printf(" ");
 
+            // Indicateurs numériques de la grille
             for (indicateurs = 1; indicateurs < 10; indicateurs++) {
                 printf("%5d", indicateurs);
             }
 
 
-            // Reaffiche le tableau
+            // Re-affiche la grille
 
             for (ligne = 0; ligne < 9; ligne++) {
                 printf("\n");
@@ -170,7 +187,7 @@ void affichageGrille() {
 
         }
 
-
+        // Condition pour quand un tir touche un bateau
 
         if (tableau_de_jeu[vertical][horizontal] == TORPIEUR ||
             tableau_de_jeu[vertical][horizontal] == SOUS_MARIN ||
@@ -184,16 +201,16 @@ void affichageGrille() {
 
             // Ecrit touché pour l'utilisateur
 
-
             printf("\nTouché ! \n");
             printf("\nVotre score actuel est de %d\n", score);
             score=score+15;
 
             // Diverses conditions pour savoir quand un bateau est coulé
 
+            // Pour le torpieur
             if (tableau_de_jeu[vertical][horizontal] == TORPIEUR){
                 vie_torpieur++;
-
+                // Condition pour savoir si le bateau est coulé
                 if (vie_torpieur == 2) {
                     printf("Vous avez coulé le torpieur !\n");
                     nbbateauxcoule++;
@@ -202,10 +219,11 @@ void affichageGrille() {
 
             }
 
+            // Pour le sous-marin
             if (tableau_de_jeu[vertical][horizontal] == SOUS_MARIN){
                 vie_sous_marin++;
 
-
+                // Condition pour savoir si le bateau est coulé
                 if (vie_sous_marin == 3){
                     printf("Vous avez détruit le sous-marin !\n");
                     nbbateauxcoule++;
@@ -214,10 +232,11 @@ void affichageGrille() {
 
             }
 
+            // Pour le contre torpieur
             if (tableau_de_jeu[vertical][horizontal] == CONTRE_TORPIEUR){
                 vie_contre_torpieur++;
 
-
+                // Condition pour savoir si le bateau est coulé
                 if (vie_contre_torpieur == 3){
                     printf("Vous avez coulé le contre-torpieur !\n");
                     nbbateauxcoule++;
@@ -226,10 +245,11 @@ void affichageGrille() {
 
             }
 
+            // Pour le croiseur
             if (tableau_de_jeu[vertical][horizontal] == CROISEUR){
                 vie_croiseur++;
 
-
+                // Condition pour savoir si le bateau est coulé
                 if (vie_croiseur == 4){
                     printf("Vous avez coulé le croiseur !\n");
                     nbbateauxcoule++;
@@ -238,11 +258,11 @@ void affichageGrille() {
 
             }
 
-
+            // pour la porte-avion
             if (tableau_de_jeu[vertical][horizontal] == PORTE_AVION){
                 vie_porte_avion++;
 
-
+                // Condition pour savoir si le bateau est coulé
                 if (vie_porte_avion == 5){
                     printf("Vous avez coulé le porte-avion !\n");
                     nbbateauxcoule++;
@@ -288,11 +308,11 @@ void affichageGrille() {
 
         }
 
-        // Condition si on rate, plouf !
+        // Condition si on rate, plouf
 
         if (tableau_de_jeu[vertical][horizontal] == 0) {
 
-            score=score-3;
+            score=score-5;
             // Met un R a la place du - pour dire que il n'y avait rien sur cette case mais que il y a eu un tir dessus
             tableauAfficher[vertical][horizontal] = *"R";
 
@@ -304,8 +324,6 @@ void affichageGrille() {
 
             int indicateurs = 1;
             int chiffres_ligne=1;
-
-
 
 
             printf(" ");
@@ -331,7 +349,7 @@ void affichageGrille() {
 
         }
 
-
+        // Ajoute a chaque fois 1 a nb de coups
         nbcoups++;
     }
 }
