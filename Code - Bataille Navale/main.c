@@ -119,7 +119,8 @@ int main() {
 
     if (txtscore == NULL) {
         txtscore = fopen("Score.txt", "a");
-        fprintf(txtscore, "\n\nPseudo du joueur : %s\n\n",playername);
+        fprintf(txtscore,"-------------------------------------\n");
+        fprintf(txtscore, "Pseudo du joueur : %s\n\n",playername);
 
     }
 

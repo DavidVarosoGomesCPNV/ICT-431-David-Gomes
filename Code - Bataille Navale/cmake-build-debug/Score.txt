@@ -1,8 +1,14 @@
+-------------------------------------
+Pseudo du joueur : David
 
+Partie gagnée !! =D
+  Voici votre score :  249 points !
+-------------------------------------
 
-Pseudo du joueur : B
+-------------------------------------
+Pseudo du joueur : Giorgis
 
-
-
-Pseudo du joueur : 3
+Partie perdue :( 
+ Voici votre score :  21 points !
+-------------------------------------
 

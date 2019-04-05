@@ -82,11 +82,12 @@ void affichageGrille() {
 
     while (nbcoups < 80 ) {
 
-        if(nbcoups==55){
+        if(nbcoups==40){
 
             fprintf(txtscore,"Partie perdue :( \n");
             fprintf(txtscore," %s ","Voici votre score :");
             fprintf(txtscore," %d ""points !",score);
+            fprintf(txtscore,"\n-------------------------------------\n\n");
 
             printf("\n\n\nVous avez perdu ! Vous n'avez pas réussi a couler tout les bateaux en 40 coups, dommage !\n\n");
             printf("\nVous pouvez voir le score de tout les joueurs dans le fichier Score.txt !");
@@ -101,6 +102,7 @@ void affichageGrille() {
             fprintf(txtscore,"Partie gagnée !! =D\n ");
             fprintf(txtscore," %s ","Voici votre score :");
             fprintf(txtscore," %d ""points !",score);
+            fprintf(txtscore,"\n-------------------------------------\n\n");
 
             printf("\n\nVotre score final est de %d !", score);
             printf("\nVous pouvez voir le score de tout les joueurs dans le fichier Score.txt !");
@@ -163,6 +165,8 @@ void affichageGrille() {
             scanf("%d", &vertical);
             printf("\nChoisisez votre position dans la colonne : \n");
             scanf("%d", &horizontal);
+
+            system("cls");
 
         }
 
