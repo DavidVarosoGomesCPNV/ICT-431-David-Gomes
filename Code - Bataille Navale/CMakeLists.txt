@@ -3,4 +3,4 @@ project(Code C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Code main.c "Grilles Aléatoires.h")
+add_executable(Code main.c)

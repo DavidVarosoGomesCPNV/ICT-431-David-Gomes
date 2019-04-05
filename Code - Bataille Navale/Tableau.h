@@ -62,6 +62,8 @@ void affichageGrille() {
     // 1 torpieur : 2 cases, 1 sous-marin : 3 cases, 1 contre-torpieur : 3 cases, 1 croiseur : 4 cases et 1 porte-avions : 5 cases
     // Tout cela est aussi détailé dans l'option "Règles du jeu" du menu
 
+
+
     int tableau_de_jeu[MAX_LIGNE][MAX_COLONNE] = {
             0, 0, 0, 2, 2, 0, 0, 4, 0, 0,
             0, 5, 0, 0, 0, 0, 0, 4, 0, 0,
@@ -132,9 +134,85 @@ void affichageGrille() {
 
         printf("\nChoisisez votre position dans la ligne : \n");
         scanf("%d", &vertical);
+        while(vertical >= 10){
+            system("cls");
+            printf("NON, il faut rentrer une valeur inférieure à 10 !!\n");
+
+            int ligne = 0;
+            int colonne = 0;
+
+            int indicateurs = 1;
+            int chiffres_ligne=1;
+
+            printf(" ");
+
+            // Indicateurs numériques de la grille
+            for (indicateurs = 1; indicateurs < 10; indicateurs++) {
+                printf("%5d", indicateurs);
+            }
+
+
+            // Re-affiche la grille
+
+            for (ligne = 0; ligne < 9; ligne++) {
+                printf("\n");
+
+                printf("%d",chiffres_ligne);
+                chiffres_ligne++;
+
+                for (colonne = 0; colonne < 9; colonne++) {
+                    printf("%5c", tableauAfficher[ligne][colonne]);
+
+                }
+
+            }
+
+            printf("\nChoisisez votre position dans la ligne : \n");
+            scanf("%d", &vertical);
+            system("cls");
+        }
+
+
         printf("\nChoisisez votre position dans la colonne : \n");
         scanf("%d", &horizontal);
+        while(horizontal >= 10 ){
 
+
+            printf("NON, il faut rentrer une valeur inférieure à 10 !!\n");
+
+            int ligne = 0;
+            int colonne = 0;
+
+            int indicateurs = 1;
+            int chiffres_ligne=1;
+
+            printf(" ");
+
+            // Indicateurs numériques de la grille
+            for (indicateurs = 1; indicateurs < 10; indicateurs++) {
+                printf("%5d", indicateurs);
+            }
+
+
+            // Re-affiche la grille
+
+            for (ligne = 0; ligne < 9; ligne++) {
+                printf("\n");
+
+                printf("%d",chiffres_ligne);
+                chiffres_ligne++;
+
+                for (colonne = 0; colonne < 9; colonne++) {
+                    printf("%5c", tableauAfficher[ligne][colonne]);
+
+                }
+
+            }
+
+            printf("\nChoisisez votre position dans la colonne : \n");
+            scanf("%d", &horizontal);
+            system("cls");
+        }
 
 
 

@@ -132,7 +132,6 @@ int main() {
     }
 
 
-
     printf("Que vouleuz-vous faire ?\n");
 
     menu();
