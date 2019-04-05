@@ -130,10 +130,10 @@ void affichageGrille() {
         // Affichage et demande des valeurs ou l'utilisateur veut tirer
 
 
-
-
         printf("\nChoisisez votre position dans la ligne : \n");
         scanf("%d", &vertical);
+
+        // Vérifie que la valeur rentrée est inférieure a 10
         while(vertical >= 10){
             system("cls");
             printf("NON, il faut rentrer une valeur inférieure à 10 !!\n");
@@ -166,7 +166,7 @@ void affichageGrille() {
                 }
 
             }
-
+            // Redemande à l'utilisateur de chosir ou il veut tirer
             printf("\nChoisisez votre position dans la ligne : \n");
             scanf("%d", &vertical);
             system("cls");
@@ -175,6 +175,8 @@ void affichageGrille() {
 
         printf("\nChoisisez votre position dans la colonne : \n");
         scanf("%d", &horizontal);
+
+        // Vérifie que la valeur rentrée est inférieure a 10
         while(horizontal >= 10 ){
 
 
@@ -209,6 +211,7 @@ void affichageGrille() {
 
             }
 
+            // Redemande à l'utilisateur de chosir ou il veut tirer
             printf("\nChoisisez votre position dans la colonne : \n");
             scanf("%d", &horizontal);
             system("cls");
